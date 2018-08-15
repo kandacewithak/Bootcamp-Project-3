@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PROJECT THREE</title>
+</head>
+<body>
+
+  <header>
+
+    <h1>Brighten Your Day</h1>
+    <p>A celebrity is just waiting to send you a personalized Tweet! Answer the questions below and a Tweet will be sent your way.</p>
+
+  </header>
+
+  <main>
+
+    <form class="questions">
+
+      <div class="userName">
+        <label for="name">What is your name?</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+
+      <fieldset class="userPronoun">
+        <h2>What is your pronoun?</h2>
+        <div>
+          <input type="radio" id="he" name="pronoun" value="he"/>
+          <label for="he">He</label>
+        </div>
+        <div>
+          <input type="radio" id="she" name="pronoun" value="she"/>
+          <label for="she">She</label>
+        </div>
+        <div>
+          <input type="radio" id="they" name="pronoun" value="they"/>
+          <label for="they">They</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="tweetType">
+        <h2>Would you like a Tweet from someone inspirational or controversial?</h2>
+        <div>
+          <input type="radio" id="inspirational" name="tweetStyle" value="inspirational"/>
+          <label for="inspirational">Inspirational</label>
+        </div>
+        <div>
+          <input type="radio" id="motivational" name="tweetStyle" value="motivational"/>
+          <label for="motivational">Motivational</label>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Tweet Me"/>
+
+    </form>
+
+
+    <div class="tweetResults">
+
+      
+
+    </div>
+ 
+  </main>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="scripts/script.js"></script>
+  
+</body>
+</html>
+
+
+
+
+<!--
+KANYE WEST:
+${name} you gotta wake up, look in the mirror and put your confidence on.
+
+AMANDA BYNES:
+Hey ${name}, do you want Drake to .... nevermind.
+
+BRITNEY SPEARS:
+Does anyone think the Earth might be flat? I love ${name}. I think he or she is/they are a really interesting person.
+
+DONALD TRUMP:
+I can understand why ${name}, more like ${nickname}${name}, would want a Tweet from me.  I have the most followers on Twitter.  My numbers are increasing bigly.  ${name}
+
+OPRAH:
+${name} gets a Tweet, his/her/their friends get a Tweet, EVERYONE GETS A TWEET!
+
+CHRIS HARRISON:
+${name}, I think this will be the most dramatic year of your life, ever.
+
+LINKIN PARK:
+In the end, does this Tweet even matter ${name}?
+
+-->
