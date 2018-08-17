@@ -3,99 +3,103 @@
 
 // need to create an object that will hold two arrays that each contain celebrity tweet objects
 
-const tweets = {
+const tweetApp = {};
+
+let name;
+
+tweetApp.tweets = {
   inspirational: [
-    { celebrity: "oprah",
+    { celebrity: "Oprah Winfrey",
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `You get a Tweet, ${name} gets a Tweet, EVERYONE GETS A TWEET!!!!!!`;
       },
-      handle: "@oprah",
-      url: "https://picsum.photos/100"
+      handle: "@Oprah",
+      url: "assets/oprah.jpg"
     },
-    { celebrity: 'kanye',
+    { celebrity: 'Dwayne Johnson',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `Do you smell what ${name} is cooking? I hope it's delicious`;
       },
-      handle: "@kanye",
-      url: "https://picsum.photos/100"
+      handle: "@TheRock",
+      url: "assets/therock.jpg"
     },
-    { celebrity: 'ellen',
+    { celebrity: 'Ellen DeGeneres',
       tweet: function(name){
       return `HEY ${name} THIS IS A TWEET`;
       },
-      handle: "@ellen",
-      url: "https://picsum.photos/100"
+      handle: "@TheEllenShow",
+      url: "assets/ellen.jpg"
     },
-    { celebrity: 'obama',
+    { celebrity: 'Barack Obama',
       tweet: function(name){
       return `HEY ${name} THIS IS A TWEET`;
       },
-      handle: "@obama",
-      url: "https://picsum.photos/100"
+      handle: "@BarackObama",
+      url: "assets/obama.jpg"
     },
-    { celebrity: 'jason',
+    { celebrity: 'Justin Bieber',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `HEY ${name}, let's chill by the fire while we're eating fondue.`;
       },
-      handle: "@jason",
-      url: "https://picsum.photos/100"
-    },
-    { celebrity: 'biebs',
-      tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
-      },
-      handle: "@biebs",
-      url: "https://picsum.photos/100"
+      handle: "@justinbieber",
+      url: "assets/justin.jpg"
     }
   ],
 
-  motivational: [
-    { celebrity: 'trump',
+  controversial: [
+    { celebrity: 'Donald J. Trump',
       tweet: function(name){
       return `HEY ${name} THIS IS A TWEET`;
       },
-      handle: "@trump",
-      url: "https://picsum.photos/100"
+      handle: "@realDonaldTrump",
+      url: "assets/trump.jpg"
     },
-    { celebrity: 'britney',
+    { celebrity: 'Britney Spears',
       tweet: function(name){
       return `HEY ${name} THIS IS A TWEET`;
       },
-      handle: "@britney",
-      url: "https://picsum.photos/100"
+      handle: "@britneyspears",
+      url: "assets/britney.jpg"
     },
-    { celebrity: 'kanye',
+    { celebrity: 'KANYE WEST',
       tweet: function(name){
       return `HEY ${name} THIS IS A TWEET`;
       },
-      handle: "@kanye",
-      url: "https://picsum.photos/100"
+      handle: "@kanyewest",
+      url: "assets/kanye.jpg"
     },
-    { celebrity: 'roseanne',
+    { celebrity: 'Mike The Situation',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `Gym, tan, laundry baby ... and ${name}, trust me, don't forget to pay your taxes.`;
       },
-      handle: "@roseanne",
-      url: "https://picsum.photos/100"
-    },
-    { celebrity: 'chrissy',
-      tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
-      },
-      handle: "@chrissy",
-      url: "https://picsum.photos/100"
-    },
-    { celebrity: 'simon',
-      tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
-      },
-      handle: "@simon",
-      url: "https://picsum.photos/100"
+      handle: "@ItsTheSituation",
+      url: "assets/situation.jpg"
     }
+    // { celebrity: 'chrissy teigen',
+    //   tweet: function(name){
+    //   return `HEY ${name} THIS IS A TWEET`;
+    //   },
+    //   handle: "@chrissyteigen",
+    //   url: "assets/chrissy.jpg"
+    // },
+    // { celebrity: 'simon',
+    //   tweet: function(name){
+    //   return `HEY ${name} THIS IS A TWEET`;
+    //   },
+    //   handle: "@simon",
+    //   url: "assets/simon.jpg"
+    // }
   ]
 };
 
-const months = [
+ // a function that generates a random number and then uses that random number to return an object (based on index number) within the array (randomly)
+
+tweetApp.random = function(array){
+  const number = Math.floor(Math.random() * array.length);
+  return array[number];
+}
+
+tweetApp.months = [
   "Jan",
   "Feb",
   "Mar",
@@ -111,68 +115,123 @@ const months = [
 ];
 
 
+tweetApp.submitQuestionOne = function(){
+  // user comes to the site to enter the first question - their name 
+  $('form').on('submit', function(event){
+    // prevent the default behaviour of the form on submit
+    event.preventDefault();
+    //gets value/data from what the user types in as their name
+    name = $('#name').val().trim();
+    // after they enter their name, add the class of hide to the question
+    $('.question-1').addClass("hide");
+    $('.question-2').removeClass("hide");
+
+    // clears the name/data from the name submit
+    $('#name').val('');
+
+    tweetApp.submitQuestionTwo();
+  });
+};
+
+
+tweetApp.submitQuestionTwo = function(){
+  $('.question-2').on('click', function(){
+    //gets the user's pronoun from the radio button
+    const pronoun = $('input[name=pronoun]:checked').val();
+    $('.question-2').addClass('hide');
+    $('.question-3').removeClass('hide');
+
+    tweetApp.submitQuestionThree();
+  });
+};
+
+
+tweetApp.submitQuestionThree = function(){
+  $('.question-3').on('click', function(){
+
+    //gets the user's tweet preference from the radio button (inspirational or controversial)
+    const tweetPreference = $('input[name=tweet-style]:checked').val();
+    $('.question-3').addClass('hide');
+    $('.welcome').addClass('hide');
+    $('.tweet-results').removeClass('hide');
+    
+
+    //create a variable to select the array that matches the user's tweet type choice
+    const userArray = tweetApp.tweets[tweetPreference];
+  
+    // create a variable that will use the random function to narrow down the tweet options to one tweet
+    const randomTweet = tweetApp.random(userArray);
+
+    // create variables to store the random celebrity name and their tweet content
+    const celebrityName = randomTweet.celebrity;
+    const celebrityHandle = randomTweet.handle;
+    const celebrityTweet = randomTweet.tweet(name);
+    const celebrityPic = $('<img class="twitterPic">').attr('src', randomTweet.url);
+    const celebrityVerify = $('<img>').attr('src', "assets/twittercheck.png");
+
+
+    // when the responses are submitted, a random tweet is generated about the user (using their name); display that info on the page
+
+    //celebrity picture
+    $('.celeb-pic').append(celebrityPic);
+    //name of the celeb
+    $('.full-name').append(`<h3>${celebrityName}</h3>`);
+    //blue verified check
+    $('.full-name').append(celebrityVerify);
+    //handle of the celeb
+    $('.celeb-handle').append(`<h3>${celebrityHandle}</h3>`);
+    //tweet content
+    $('.tweet-body p').append(celebrityTweet);
+
+    tweetApp.dateInfo();
+    tweetApp.numberGenerator();
+    });
+  };
+
+  tweetApp.dateInfo = function(){
+
+    // use built-in methods to get the current date information for tweet
+      const currentDateTime = new Date();
+      // get the day
+      const day = currentDateTime.getDate(); // getDate gives the day (between 1 and 31)
+      // get the month
+      const monthNumber = currentDateTime.getMonth(); // getMonth gives the month in a number (between 0 and 11)
+      const monthWord = tweetApp.months[monthNumber]; // using the months array to get the name of the month
+      // get the year
+      const year = currentDateTime.getFullYear();
+    
+      // add the date info to the page
+    $('.date h4').append(`${day} ${monthWord} ${year}`);
+  }
+
+  tweetApp.numberGenerator = function(){
+    const retweets = Math.floor(Math.random() * 100 + 100);
+    const likes = Math.floor(Math.random() * 1000 + 500);
+    const comments = Math.floor(Math.random() * 100 + 50);
+  
+    $('.popularity .retweets').append(`${retweets} <span>Retweets</span>`);
+    $('.popularity .likes').append(`${likes} <span>Likes</span>`);
+
+    $('.comment h4').append(comments);
+    $('.retweet h4').append(retweets);
+    $('.heart h4').append(likes);
+
+  }
+
+tweetApp.init = function(){
+  tweetApp.submitQuestionOne();
+};
+
+
 
 
 $(document).ready(function() {
-  
-
-  // user comes to the site to enter a name and answer two questions; need to listen for the user to submit the form
-
-  $('form').on('submit', function(event){
-    
-
-    // prevent the default behaviour of the form on submit
-
-      event.preventDefault();
-
-    // create variables to hold the user's input
-
-      const name = $('#name').val().trim();
-      const pronoun = $('input[name=pronoun]:checked').val();
-      const tweetPreference = $('input[name=tweetStyle]:checked').val();
-
-    // create a variable to select the array that matches the user's tweet type choice
-  
-      const userArray = tweets[tweetPreference];
-
-    // use a function that generates a random number and then uses that random number to choose an object within the array (randomly)
-
-      const random = function(array){
-        const number = Math.floor(Math.random() * array.length);
-        return array[number];
-      }
-      const randomTweet = random(userArray);
-
-      // create variables to store the random celebrity name and their tweet string
-
-      const celebrityName = randomTweet.celebrity;
-      const celebrityTweet = randomTweet.tweet(name);
-      const celebrityPic = $('<img>').attr('src', randomTweet.url);
-    
-      // when the responses are submitted, a random tweet is generated about the user (using their name); display that info on the page
-
-      $('.tweetResults').html(celebrityName);
-      $('.tweetResults').append(celebrityTweet);
-      $('.tweetResults').append(celebrityPic);
-
-      $('#name').val('');
-
-      // make a function that will generate the current date and time
-
-      const currentDateTime = new Date();
-      const day = currentDateTime.getDate(); // getDate gives the day (between 1 and 31)
-      const monthNumber = currentDateTime.getMonth(); // getMonth gives the month in a number (between 0 and 11)
-      const monthWord = months[monthNumber]; // using the months array to get the name of the month
-      const year = currentDateTime.getFullYear();
-
-      $('.tweetResults').append(`<h4>${day}${monthWord}${year}</h4>`);
-
-  });
-
-
-
-  // user can choose to choose again or submit again to receive another tweet
-
-
-
+  tweetApp.init();
 });
+
+
+// to do:
+ // start styling and formatting the tweet and initial question
+ // figure out how to display the tweet/make it appear
+ // get pictures for each celeb (to match their twitter)
+

@@ -5,26 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>PROJECT THREE</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
   <header>
 
-    <h1>Brighten Your Day</h1>
-    <p>A celebrity is just waiting to send you a personalized Tweet! Answer the questions below and a Tweet will be sent your way.</p>
+    <h1>HASHTAG</h1>
+    <p class="welcome">A celebrity is just waiting to send you a personalized Tweet! Answer the questions below and a Tweet will be sent your way.</p>
 
   </header>
 
   <main>
 
-    <form class="questions">
 
-      <div class="userName">
-        <label for="name">What is your name?</label>
+      <form class="question question-1">
+        <h2>What is your name?</h2>
+        <label class="visually-hidden" for="name">Name:</label>
         <input type="text" name="name" id="name" required>
-      </div>
+      </form>
 
-      <fieldset class="userPronoun">
+      <fieldset class="question question-2 hide">
         <h2>What is your pronoun?</h2>
         <div>
           <input type="radio" id="he" name="pronoun" value="he"/>
@@ -38,28 +41,75 @@
           <input type="radio" id="they" name="pronoun" value="they"/>
           <label for="they">They</label>
         </div>
+        <input type="submit" value="Go Back"/>
       </fieldset>
 
-      <fieldset class="tweetType">
+      <fieldset class="question question-3 hide">
         <h2>Would you like a Tweet from someone inspirational or controversial?</h2>
         <div>
-          <input type="radio" id="inspirational" name="tweetStyle" value="inspirational"/>
+          <input type="radio" id="inspirational" name="tweet-style" value="inspirational"/>
           <label for="inspirational">Inspirational</label>
         </div>
         <div>
-          <input type="radio" id="motivational" name="tweetStyle" value="motivational"/>
-          <label for="motivational">Motivational</label>
+          <input type="radio" id="controversial" name="tweet-style" value="controversial"/>
+          <label for="controversial">Controversial</label>
         </div>
+        <input type="submit" value="Go Back"/>
       </fieldset>
 
-      <input type="submit" value="Tweet Me"/>
-
-    </form>
-
-
-    <div class="tweetResults">
-
       
+
+    <div class="tweet-results hide">
+
+      <div class="tweet-body">
+
+        <div class="celeb-info">
+          <div class="celeb-pic">
+          </div>
+          <div class="name-info">
+            <div class="full-name">
+            </div>
+            <div class="celeb-handle">
+            </div>
+          </div>
+        </div>
+
+        <p></p>
+      </div>
+
+      <div class="date">
+        <h4></h4>
+      </div>
+
+      <div class="popularity">
+        <h4 class="retweets"></h4>
+        <h4 class="likes"></h4>
+        <div class="avatars">
+          <img src="assets/person1.jpg" alt="twitter user who liked a tweet">
+          <img src="assets/person2.jpg" alt="twitter user who liked a tweet">
+          <img src="assets/person3.jpg" alt="twitter user who liked a tweet">
+          <img src="assets/person4.jpg" alt="twitter user who liked a tweet">
+          <img src="assets/person5.jpg" alt="twitter user who liked a tweet">
+          <img src="assets/person6.jpg" alt="twitter user who liked a tweet">
+          <img src="assets/person7.jpg" alt="twitter user who liked a tweet">
+        </div>
+      </div>
+
+
+      <div class="stats">
+        <div class="stat comment">
+          <i class="far fa-comment"></i><h4></h4>
+        </div>
+        <div class="stat retweet">
+          <i class="fas fa-retweet"></i><h4></h4>
+        </div>
+        <div class="stat heart">
+          <i class="far fa-heart"></i><h4></h4>
+        </div>
+        <div class="stat envelope">
+          <i class="far fa-envelope"></i><h4></h4>
+        </div>
+      </div>
 
     </div>
  
@@ -77,10 +127,10 @@
 
 <!--
 KANYE WEST:
-${name} you gotta wake up, look in the mirror and put your confidence on.
+
 
 AMANDA BYNES:
-Hey ${name}, do you want Drake to .... nevermind.
+
 
 BRITNEY SPEARS:
 Does anyone think the Earth might be flat? I love ${name}. I think he or she is/they are a really interesting person.
