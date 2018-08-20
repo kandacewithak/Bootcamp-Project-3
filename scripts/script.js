@@ -14,35 +14,35 @@ tweetApp.tweets = {
       return `You get a Tweet, <span class="name-link">@${name}</span> gets a Tweet, EVERYONE GETS A TWEET!!!!!!`;
       },
       handle: "@Oprah",
-      url: "assets/oprah.jpg"
+      url: "assets/oprah.JPG"
     },
     { celebrity: 'Dwayne Johnson',
       tweet: function(name){
       return `Today is cheat day - got a fat stack of pancakes ready to go. Don't cheat yourself, treat yourself <span class="name-link">@${name}</span>.`;
       },
       handle: "@TheRock",
-      url: "assets/therock.jpg"
+      url: "assets/therock.JPG"
     },
     { celebrity: 'Ellen DeGeneres',
       tweet: function(name){
       return `Hey <span class="name-link">@${name}</span>, why did Helvetica swipe left on Times New Roman? He wasn’t her type.`;
       },
       handle: "@TheEllenShow",
-      url: "assets/ellen.jpg"
+      url: "assets/ellen.JPG"
     },
     { celebrity: 'Barack Obama',
       tweet: function(name){
       return `Hello everyone, is this thing still on? I'm saying 'hello' to <span class="name-link">@${name}</span>, and also Joe Biden.  I miss Joe Biden.`;
       },
       handle: "@BarackObama",
-      url: "assets/obama.jpg"
+      url: "assets/obama.JPG"
     },
     { celebrity: 'Justin Bieber',
       tweet: function(name){
       return `grateful 2 b alive - love u <span class="name-link">@${name}</span>. wake up every day and make it great.`;
       },
       handle: "@justinbieber",
-      url: "assets/justin.jpg"
+      url: "assets/justin.JPG"
     }
   ],
 
@@ -52,42 +52,42 @@ tweetApp.tweets = {
       return `Can't believe <span class="name-link">@${name}</span> (more like STALKER) thinks that I would actually want to send them a Tweet. Sad! `;
       },
       handle: "@realDonaldTrump",
-      url: "assets/trump.jpg"
+      url: "assets/trump.JPG"
     },
     { celebrity: 'Britney Spears',
       tweet: function(name){
       return `Does anyone think global warming is a good thing? I love <span class="name-link">@${name}</span>. I think they are a really interesting person.`;
       },
       handle: "@britneyspears",
-      url: "assets/britney.jpg"
+      url: "assets/britney.JPG"
     },
     { celebrity: 'KANYE WEST',
       tweet: function(name){
       return `<span class="name-link">@${name}</span> has distratced me from my creative process`;
       },
       handle: "@kanyewest",
-      url: "assets/kanye.jpg"
+      url: "assets/kanye.JPG"
     },
     { celebrity: 'Mike The Situation',
       tweet: function(name){
       return `Gym, tan, laundry baby ... and <span class="name-link">@${name}</span>, trust me, don't forget to pay your taxes.`;
       },
       handle: "@ItsTheSituation",
-      url: "assets/situation.jpg"
+      url: "assets/situation.JPG"
     },
     { celebrity: 'chrissy teigen',
       tweet: function(name){
       return `everyone is in agreement that our president is a human cheeto, right? do you agree <span class="name-link">@${name}</span>?`;
       },
       handle: "@chrissyteigen",
-      url: "assets/chrissy.jpg"
+      url: "assets/chrissy.JPG"
     },
     { celebrity: 'amanda bynes',
       tweet: function(name){
       return `Hi <span class="name-link">@${name}</span> I want Drake to ..... nevermind`;
       },
       handle: "@amandabynes",
-      url: "assets/amanda.jpg"
+      url: "assets/amanda.JPG"
     }
   ]
 };
