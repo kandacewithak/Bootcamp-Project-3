@@ -49,7 +49,7 @@ tweetApp.tweets = {
   controversial: [
     { celebrity: 'Donald J. Trump',
       tweet: function(name){
-      return `Can't believe <span class="name-link">@${name}</span> (more like STALKER) thinks that I would actually want to send them a Tweet. Sad! `;
+      return `Can't believe <span class="name-link">@${name}</span> (more like STALKER) thinks that I would actually want to send them a Tweet. Sad!`;
       },
       handle: "@realDonaldTrump",
       url: "assets/trump.JPG"
@@ -97,7 +97,7 @@ tweetApp.tweets = {
 tweetApp.random = function(array){
   const number = Math.floor(Math.random() * array.length);
   return array[number];
-}
+};
 
 tweetApp.months = [
   "Jan",
@@ -121,7 +121,6 @@ tweetApp.begin = function(){
     $('.question-1').removeClass('hide').addClass("fadeIn");
 
     tweetApp.submitQuestionOne();
-  
   });
 };
 
@@ -168,9 +167,9 @@ tweetApp.submitQuestionThree = function(){
     $('.back-to-beginning').removeClass('hide');
 
     $('.back-to-beginning').on('click', function(){
+      $('.tweet-results').addClass('hide');
       location.reload(true);
     });
-
 
     
 
@@ -179,6 +178,7 @@ tweetApp.submitQuestionThree = function(){
   
     // create a variable that will use the random function to narrow down the tweet options to one tweet
     const randomTweet = tweetApp.random(userArray);
+    console.log(userArray);
 
     // create variables to store the random celebrity name and their tweet content
     const celebrityName = randomTweet.celebrity;
@@ -233,7 +233,6 @@ tweetApp.submitQuestionThree = function(){
     $('.comment h4').append(comments);
     $('.retweet h4').append(retweets);
     $('.heart h4').append(likes);
-
   }
 
 tweetApp.init = function(){

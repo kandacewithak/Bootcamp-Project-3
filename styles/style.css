@@ -134,8 +134,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 html {
   font-size: 62.5%;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  max-height: 100vh; }
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
 body {
   background-color: #C2DFFF; }
@@ -300,7 +299,7 @@ h1::after {
 
 .tweet-results {
   background-color: white;
-  width: 50%;
+  max-width: 700px;
   margin: 0 auto;
   padding: 40px;
   border-radius: 15px; }
