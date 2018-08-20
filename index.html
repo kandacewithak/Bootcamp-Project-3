@@ -6,58 +6,75 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>PROJECT THREE</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="styles/animations.css">
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
+<!-- Header of the page -->
+
   <header>
-
-    <h1>HASHTAG</h1>
-    <p class="welcome">A celebrity is just waiting to send you a personalized Tweet! Answer the questions below and a Tweet will be sent your way.</p>
-
+    <div class="logo">
+      <img src="assets/conversation.png" alt="an icon of conversation bubbles">
+    </div>
   </header>
+
+
+<!-- Main section of the page -->
 
   <main>
 
+      <div class="twitter-bird">
+        <img class="twitter-bird-image" src="assets/twitter-bird.png" alt="twitter bird">
+      </div>
 
-      <form class="question question-1">
-        <h2>What is your name?</h2>
+      <div class="start">
+        <h1 class="hi-there">Hi There!</h1>
+        <p>A celeb has been Tweeting about you. Let's see what they said.</p>
+        <button class="begin-button" type="button">Get Tweetin'</button> 
+      </div>
+
+  <!-- question one -->
+
+      <form class="question question-1 hide">
+        <h2>What is your first name?</h2>
         <label class="visually-hidden" for="name">Name:</label>
         <input type="text" name="name" id="name" required>
       </form>
 
+  <!-- question two -->
+
       <fieldset class="question question-2 hide">
         <h2>What is your pronoun?</h2>
-        <div>
+        <div class="radio-buttons">
           <input type="radio" id="he" name="pronoun" value="he"/>
           <label for="he">He</label>
         </div>
-        <div>
+        <div class="radio-buttons">
           <input type="radio" id="she" name="pronoun" value="she"/>
           <label for="she">She</label>
         </div>
-        <div>
+        <div class="radio-buttons">
           <input type="radio" id="they" name="pronoun" value="they"/>
           <label for="they">They</label>
         </div>
-        <input type="submit" value="Go Back"/>
       </fieldset>
+
+  <!-- question three -->
 
       <fieldset class="question question-3 hide">
         <h2>Would you like a Tweet from someone inspirational or controversial?</h2>
-        <div>
+        <div class="radio-buttons">
           <input type="radio" id="inspirational" name="tweet-style" value="inspirational"/>
           <label for="inspirational">Inspirational</label>
         </div>
-        <div>
+        <div class="radio-buttons">
           <input type="radio" id="controversial" name="tweet-style" value="controversial"/>
           <label for="controversial">Controversial</label>
         </div>
-        <input type="submit" value="Go Back"/>
       </fieldset>
 
-      
+  <!-- tweet results from the questions -->
 
     <div class="tweet-results hide">
 
@@ -85,13 +102,13 @@
         <h4 class="retweets"></h4>
         <h4 class="likes"></h4>
         <div class="avatars">
-          <img src="assets/person1.jpg" alt="twitter user who liked a tweet">
-          <img src="assets/person2.jpg" alt="twitter user who liked a tweet">
-          <img src="assets/person3.jpg" alt="twitter user who liked a tweet">
-          <img src="assets/person4.jpg" alt="twitter user who liked a tweet">
-          <img src="assets/person5.jpg" alt="twitter user who liked a tweet">
-          <img src="assets/person6.jpg" alt="twitter user who liked a tweet">
-          <img src="assets/person7.jpg" alt="twitter user who liked a tweet">
+          <img class="image-1" src="assets/person1.jpg" alt="twitter user who liked a tweet">
+          <img class="image-2" src="assets/person2.jpg" alt="twitter user who liked a tweet">
+          <img class="image-3" src="assets/person3.jpg" alt="twitter user who liked a tweet">
+          <img class="image-4" src="assets/person4.jpg" alt="twitter user who liked a tweet">
+          <img class="image-5" src="assets/person5.jpg" alt="twitter user who liked a tweet">
+          <img class="image-6" src="assets/person6.jpg" alt="twitter user who liked a tweet">
+          <img class="image-7" src="assets/person7.jpg" alt="twitter user who liked a tweet">
         </div>
       </div>
 
@@ -112,39 +129,18 @@
       </div>
 
     </div>
+
+    <div class="start-again">
+      <button class="back-to-beginning hide" type="button">Let's Do It Again!</button>
+    </div> 
  
   </main>
 
+  <footer>
+  </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script src="scripts/script.js"></script>
   
 </body>
 </html>
-
-
-
-
-<!--
-KANYE WEST:
-
-
-AMANDA BYNES:
-
-
-BRITNEY SPEARS:
-Does anyone think the Earth might be flat? I love ${name}. I think he or she is/they are a really interesting person.
-
-DONALD TRUMP:
-I can understand why ${name}, more like ${nickname}${name}, would want a Tweet from me.  I have the most followers on Twitter.  My numbers are increasing bigly.  ${name}
-
-OPRAH:
-${name} gets a Tweet, his/her/their friends get a Tweet, EVERYONE GETS A TWEET!
-
-CHRIS HARRISON:
-${name}, I think this will be the most dramatic year of your life, ever.
-
-LINKIN PARK:
-In the end, does this Tweet even matter ${name}?
-
--->

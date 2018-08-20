@@ -11,35 +11,35 @@ tweetApp.tweets = {
   inspirational: [
     { celebrity: "Oprah Winfrey",
       tweet: function(name){
-      return `You get a Tweet, ${name} gets a Tweet, EVERYONE GETS A TWEET!!!!!!`;
+      return `You get a Tweet, <span class="name-link">@${name}</span> gets a Tweet, EVERYONE GETS A TWEET!!!!!!`;
       },
       handle: "@Oprah",
       url: "assets/oprah.jpg"
     },
     { celebrity: 'Dwayne Johnson',
       tweet: function(name){
-      return `Do you smell what ${name} is cooking? I hope it's delicious`;
+      return `Today is cheat day - got a fat stack of pancakes ready to go. Don't cheat yourself, treat yourself <span class="name-link">@${name}</span>.`;
       },
       handle: "@TheRock",
       url: "assets/therock.jpg"
     },
     { celebrity: 'Ellen DeGeneres',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `Hey <span class="name-link">@${name}</span>, why did Helvetica swipe left on Times New Roman? He wasn’t her type.`;
       },
       handle: "@TheEllenShow",
       url: "assets/ellen.jpg"
     },
     { celebrity: 'Barack Obama',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `Hello everyone, is this thing still on? I'm saying 'hello' to <span class="name-link">@${name}</span>, and also Joe Biden.  I miss Joe Biden.`;
       },
       handle: "@BarackObama",
       url: "assets/obama.jpg"
     },
     { celebrity: 'Justin Bieber',
       tweet: function(name){
-      return `HEY ${name}, let's chill by the fire while we're eating fondue.`;
+      return `grateful 2 b alive - love u <span class="name-link">@${name}</span>. wake up every day and make it great.`;
       },
       handle: "@justinbieber",
       url: "assets/justin.jpg"
@@ -49,50 +49,50 @@ tweetApp.tweets = {
   controversial: [
     { celebrity: 'Donald J. Trump',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `Can't believe <span class="name-link">@${name}</span> (more like STALKER) thinks that I would actually want to send them a Tweet. Sad! `;
       },
       handle: "@realDonaldTrump",
       url: "assets/trump.jpg"
     },
     { celebrity: 'Britney Spears',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `Does anyone think global warming is a good thing? I love <span class="name-link">@${name}</span>. I think they are a really interesting person.`;
       },
       handle: "@britneyspears",
       url: "assets/britney.jpg"
     },
     { celebrity: 'KANYE WEST',
       tweet: function(name){
-      return `HEY ${name} THIS IS A TWEET`;
+      return `<span class="name-link">@${name}</span> has distratced me from my creative process`;
       },
       handle: "@kanyewest",
       url: "assets/kanye.jpg"
     },
     { celebrity: 'Mike The Situation',
       tweet: function(name){
-      return `Gym, tan, laundry baby ... and ${name}, trust me, don't forget to pay your taxes.`;
+      return `Gym, tan, laundry baby ... and <span class="name-link">@${name}</span>, trust me, don't forget to pay your taxes.`;
       },
       handle: "@ItsTheSituation",
       url: "assets/situation.jpg"
+    },
+    { celebrity: 'chrissy teigen',
+      tweet: function(name){
+      return `everyone is in agreement that our president is a human cheeto, right? do you agree <span class="name-link">@${name}</span>?`;
+      },
+      handle: "@chrissyteigen",
+      url: "assets/chrissy.jpg"
+    },
+    { celebrity: 'amanda bynes',
+      tweet: function(name){
+      return `Hi <span class="name-link">@${name}</span> I want Drake to ..... nevermind`;
+      },
+      handle: "@amandabynes",
+      url: "assets/amanda.jpg"
     }
-    // { celebrity: 'chrissy teigen',
-    //   tweet: function(name){
-    //   return `HEY ${name} THIS IS A TWEET`;
-    //   },
-    //   handle: "@chrissyteigen",
-    //   url: "assets/chrissy.jpg"
-    // },
-    // { celebrity: 'simon',
-    //   tweet: function(name){
-    //   return `HEY ${name} THIS IS A TWEET`;
-    //   },
-    //   handle: "@simon",
-    //   url: "assets/simon.jpg"
-    // }
   ]
 };
 
- // a function that generates a random number and then uses that random number to return an object (based on index number) within the array (randomly)
+// a function that generates a random number and then uses that random number to return an object (based on index number) within the array (randomly)
 
 tweetApp.random = function(array){
   const number = Math.floor(Math.random() * array.length);
@@ -114,9 +114,19 @@ tweetApp.months = [
   "Dec"
 ];
 
+tweetApp.begin = function(){
+  $('button').on('click', function(){
+  
+    $('.start').addClass('hide').addClass('slideUp');
+    $('.question-1').removeClass('hide').addClass("fadeIn");
+
+    tweetApp.submitQuestionOne();
+  
+  });
+};
 
 tweetApp.submitQuestionOne = function(){
-  // user comes to the site to enter the first question - their name 
+  // user answers the first question - their name 
   $('form').on('submit', function(event){
     // prevent the default behaviour of the form on submit
     event.preventDefault();
@@ -125,6 +135,7 @@ tweetApp.submitQuestionOne = function(){
     // after they enter their name, add the class of hide to the question
     $('.question-1').addClass("hide");
     $('.question-2').removeClass("hide");
+    $('.question-2').addClass("fadeIn");
 
     // clears the name/data from the name submit
     $('#name').val('');
@@ -139,12 +150,11 @@ tweetApp.submitQuestionTwo = function(){
     //gets the user's pronoun from the radio button
     const pronoun = $('input[name=pronoun]:checked').val();
     $('.question-2').addClass('hide');
-    $('.question-3').removeClass('hide');
+    $('.question-3').removeClass('hide').addClass('fadeIn');
 
     tweetApp.submitQuestionThree();
   });
 };
-
 
 tweetApp.submitQuestionThree = function(){
   $('.question-3').on('click', function(){
@@ -154,6 +164,14 @@ tweetApp.submitQuestionThree = function(){
     $('.question-3').addClass('hide');
     $('.welcome').addClass('hide');
     $('.tweet-results').removeClass('hide');
+    $('.twitter-bird-image').addClass('hide');
+    $('.back-to-beginning').removeClass('hide');
+
+    $('.back-to-beginning').on('click', function(){
+      location.reload(true);
+    });
+
+
     
 
     //create a variable to select the array that matches the user's tweet type choice
@@ -219,19 +237,10 @@ tweetApp.submitQuestionThree = function(){
   }
 
 tweetApp.init = function(){
-  tweetApp.submitQuestionOne();
+  tweetApp.begin();
 };
-
-
 
 
 $(document).ready(function() {
   tweetApp.init();
 });
-
-
-// to do:
- // start styling and formatting the tweet and initial question
- // figure out how to display the tweet/make it appear
- // get pictures for each celeb (to match their twitter)
-
